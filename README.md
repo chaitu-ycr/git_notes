@@ -1,77 +1,75 @@
 # git_notes
 
-useful commands
-- print git configuration list git config --list
-- git configure email and name
-    - git config --global user.email "enter email id"
-    - git config --global user.name "enter your name"
-- git config --global core.autocrlf true
-- git ssh key generation 👉 ssh-keygen -t rsa -C "enter email id"
-- add notepad++ as a global text editor git config --global core.editor notepad++
-- git clone new repo
-    - git clone https://github.com/user/repo.git
-    - git clone https://github.com/user/repo.git <user_defined_repo_path>
-- git checkout branch git checkout <branch-name>
-- git fetch 👉 git fetch
-- git pull changes 👉 git pull
-- type git pull –rebase to get the latest source version into your local checked out branch (no local changes will be deleted, the latest master will only be merged on your changes). this only works if all changes are commited.
-- create or add new files use git add <new filename>
-- use git status to get a list of modified files
-- use git commit –a to pack the changes into one commit (like a change package)
-- use git commit –amend –a to get additional changes to a not pushed commit
-- git push commits to server 👉 git push origin HEAD:<branch-name>
-- to see the history of commits use git log. To see only the last 3 commit use git log -3
-- type gitk to open a graphical user interface showing only the mainline you are working on e.g. master if you have checked out master
-- type gitk --all to open a graphical user interface showing all branches
-- to identify the currently checked out mainline use git branch
-- to also see all other branches use git branch –av
-- if you want to change your mainline use git checkout <branch_name>
-- you can also use the graphical user interface gitk –all -> right click on branch    -> Checkout this branch
-- type git fetch --all to get newest repository changes visible in e.g. - gitk (source code is not affected). Otherwise you will not be unable to seenew commit from other people!
-- type git difftool to compare your current changes on workspace (which are not commited yet) to the latest commit
-- type git log -2 to show the latest 2 commits
-- if you want to compare the changes between 2 commits use git difftool <commit id 1> < commit id 2>
-- type git cherry-pick <commit-id> to get the change into your workspace
-- git clean and reset
-    - git clean -xffd
-    - git reset --hard
-    - git submodule foreach --recursive git clean -xffd
-    - git submodule foreach --recursive git reset --hard
-- force update git submodules recursively 👉 git submodule update --init --recursive --force
-- remove last commit or uncommit last commit 👉 git reset --hard HEAD~1
-- discard modified files and remove untracked files 👉 git reset --hard && git clean -f -d
-- git add submodule
-- git submodule add https://github.com/user/repo.git
-- git submodule add https://github.com/user/repo.git path_to_store_submodule
-- remove git submodule:
-    - remove the submodule entry from .git/config 👉 git submodule deinit -f path/to/submodule
-    - remove the submodule directory from the superproject's .git/modules directory 👉 rm -rf .git/modules/path/to/submodule
-    - remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule 👉 git rm -f path/to/submodule
-- print latest commit ID 👉 git log -1 --format=%H
-- git rebase 👉 git rebase <base_branch>
-- git print commits merged between two commits 👉 git log --oneline 1223344556677890897867453423122334456778..6523456789236734562354237856345634567890
-- Solve merge conflicts on push to remote repository 
-- git rebasing steps
-    - git fetch
-    - git rebase origin/<branch>
+## useful commands
+- print git configuration list 👉 `git config --list`
+- configure email and name
+    - `git config --global user.email "enter email id"`
+    - `git config --global user.name "enter your name"`
+- ssh key generation 👉 `ssh-keygen -t rsa -C "enter email id"`
+- add notepad++ as a global text editor 👉 `git config --global core.editor notepad++`
+- clone repository
+    - `git clone https://github.com/user/repo.git`
+    - `git clone https://github.com/user/repo.git <user_defined_repo_path>`
+    - `git clone -b <branch-name> https://github.com/user/repo.git <user_defined_repo_path>`
+- checkout branch 👉 `git checkout <branch-name>`
+- identify the currently checked out mainline 👉 `git branch`
+    - to also see all other branches 👉 `git branch –av`
+- fetch 👉 `git fetch`
+    - get newest repository changes visible 👉 `git fetch --all`
+- pull changes 👉 `git pull`
+- create or add new files 👉 `git add <new filename>`
+- get a list of modified files 👉 `git status`
+- commit changes
+    - pack the changes into one commit (like a change package) 👉 `git commit –a`
+    - get additional changes to a not pushed commit 👉 `git commit –amend –a`
+- push commits to server 👉 `git push origin HEAD:<branch-name>`
+- git log
+    - history of commits 👉 `git log`
+    - history of last 3 commit 👉 `git log -3`
+    - print latest commit ID 👉 `git log -1 --format=%H`
+    - print commits merged between two commits 👉 `git log --oneline 1223344556677890897867453423122334456778..6523456789236734562354237856345634567890`
+- compare your current changes on workspace (which are not committed yet) to the latest commit 👉 `git difftool`
+- if you want to compare the changes between 2 commits use 👉 `git difftool <commit id 1> < commit id 2>`
+- cherry-pick change into your workspace 👉 `git cherry-pick <commit-id>`
+- rebasing steps
+    - `git fetch`
+    - `git rebase origin/<branch>`
         - if any conflicts then resolve and execute below comments
-            - git add .
-            - git rebase --continue
-    - git push --force-with-lease origin HEAD
-- Create/Remove Tag in git repo:
-    - make a new tag locally 👉 git tag <tagname> <commitId>
-    - push specific new local tag to the remote 👉 git push origin <tagname>
-    - push all new local tags to remote 👉 git push origin --tags
-    - delete the old tag locally 👉 git tag -d <tagname>
-    - delete the old tag remotely 👉 git push origin :refs/tags/<tagname>
-- git stash relevent commands
-    - git stash 👉 to stash current changes.
-    - git stash list 👉 to list your stashed changes.
-    - git stash show 👉 to see what n is in the below commands.
-    - git stash apply 👉 to apply the most recent stash.
-    - git stash apply stash@{n} 👉 to apply an older stash.
-- increase git push/pull timeouts
-    - git config lfs.dialtimeout 3600
-    - git config lfs.activitytimeout 3600
-    - git config lfs.tlstimeout 3600
-    - git config lfs.keepalive 3600
+            - `git add .`
+            - `git rebase --continue`
+    - `git push --force-with-lease origin HEAD`
+- git stash commands
+    - `git stash` 👉 to stash current changes.
+    - `git stash list` 👉 to list your stashed changes.
+    - `git stash show` 👉 to see what n is in the below commands.
+    - `git stash apply` 👉 to apply the most recent stash.
+    - `git stash apply stash@{n}` 👉 to apply an older stash.
+- clean and reset
+    - clean repository 👉 `git clean -xffd`
+    - reset repository 👉 `git reset --hard`
+    - discard modified files and remove untracked files 👉 `git reset --hard && git clean -f -d`
+    - remove last commit or uncommit last commit 👉 `git reset --hard HEAD~1`
+- git submodule
+    - add submodule 👉 `git submodule add https://github.com/user/repo.git`
+    - add submodule in specific path 👉 `git submodule add https://github.com/user/repo.git path_to_store_submodule`
+    - force update submodules recursively 👉 `git submodule update --init --recursive --force`    
+    - clean submodule recursively 👉 `git submodule foreach --recursive git clean -xffd`
+    - reset submodule recursively 👉 `git submodule foreach --recursive git reset --hard`
+    - remove submodule:
+        - remove the submodule entry from .git/config 👉 `git submodule deinit -f path/to/submodule`
+        - remove the submodule directory from the superproject's .git/modules directory 👉 `rm -rf .git/modules/path/to/submodule`
+        - remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule 👉 `git rm -f path/to/submodule`
+
+- Create/Remove Tag:
+    - make a new tag locally 👉 `git tag <tagname> <commitId>`
+    - push specific new local tag to the remote 👉 `git push origin <tagname>`
+    - push all new local tags to remote 👉 `git push origin --tags`
+    - delete the old tag from local copy 👉 `git tag -d <tagname>`
+    - delete the old tag from remote origin 👉 `git push origin :refs/tags/<tagname>`
+- increase push/pull timeouts
+    - `git config lfs.dialtimeout 3600`
+    - `git config lfs.activitytimeout 3600`
+    - `git config lfs.tlstimeout 3600`
+    - `git config lfs.keepalive 3600`
+- open a graphical user interface showing only the mainline you are working 👉 `gitk`
+    - open a graphical user interface showing all branches 👉 `gitk --all`
