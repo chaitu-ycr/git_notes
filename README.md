@@ -1,75 +1,120 @@
 # git_notes
 
-## useful commands
-- print git configuration list 👉 `git config --list`
-- configure email and name
-    - `git config --global user.email "enter email id"`
-    - `git config --global user.name "enter your name"`
-- ssh key generation 👉 `ssh-keygen -t rsa -C "enter email id"`
-- add notepad++ as a global text editor 👉 `git config --global core.editor notepad++`
-- clone repository
-    - `git clone https://github.com/user/repo.git`
-    - `git clone https://github.com/user/repo.git <user_defined_repo_path>`
-    - `git clone -b <branch-name> https://github.com/user/repo.git <user_defined_repo_path>`
-- checkout branch 👉 `git checkout <branch-name>`
-- identify the currently checked out mainline 👉 `git branch`
-    - to also see all other branches 👉 `git branch –av`
-- fetch 👉 `git fetch`
-    - get newest repository changes visible 👉 `git fetch --all`
-- pull changes 👉 `git pull`
-- create or add new files 👉 `git add <new filename>`
-- get a list of modified files 👉 `git status`
-- commit changes
-    - pack the changes into one commit (like a change package) 👉 `git commit –a`
-    - get additional changes to a not pushed commit 👉 `git commit –amend –a`
-- push commits to server 👉 `git push origin HEAD:<branch-name>`
-- git log
-    - history of commits 👉 `git log`
-    - history of last 3 commit 👉 `git log -3`
-    - print latest commit ID 👉 `git log -1 --format=%H`
-    - print commits merged between two commits 👉 `git log --oneline 1223344556677890897867453423122334456778..6523456789236734562354237856345634567890`
-- compare your current changes on workspace (which are not committed yet) to the latest commit 👉 `git difftool`
-- if you want to compare the changes between 2 commits use 👉 `git difftool <commit id 1> < commit id 2>`
-- cherry-pick change into your workspace 👉 `git cherry-pick <commit-id>`
-- rebasing steps
+- git configuration 👇
+    - Git configuration allows you to personalize how Git works for you. It's like setting preferences for any other software.
+    - There's a command called `git config` that lets you set and view these settings.
+    - check your current configuration ➡️ `git config --list`
+    - configure email and name globally
+        - email id ➡️ `git config --global user.email "enter email id"`
+        - user name ➡️ `git config --global user.name "enter your name"`
+    - add notepad++ as a global text editor ➡️ `git config --global core.editor notepad++`
+- ssh key generation 👇
+    - generating SSH keys is a crucial step for using Git over SSH to securely connect to remote repositories like GitHub or GitLab.
+    - `ssh-keygen -t rsa -C "enter email id"`
+        - `ssh-keygen` This is the command to generate the SSH key pair.
+        - `-t ed25519` This specifies the key type. Ed25519 is a modern and secure option. You can use `-t rsa -b 4096` for RSA keys if your Git provider requires it, but Ed25519 is generally preferred.
+        - `-C "your_email@example.com"` This adds a comment to your key with your email address. This is helpful for identification.
+    - command will generate two keys
+        - A private key (usually named `id_rsa`) - This key should be kept confidential and never shared.
+        - A public key (usually named `id_rsa.pub`) - You'll need to add this public key to your Git provider account.
+- clone repository 👇
+    - `git clone` command is your gateway to creating a local copy, or clone, of a remote Git repository.
+        - basic syntax ➡️ `git clone [url] [directory_name]`
+        - `git clone https://github.com/user/my-project.git`
+    - other options
+        - clone to a specific path
+            - `git clone https://github.com/user/my-project.git <user_defined_repo_path>`
+        - Clone a specific branch
+            - use the `-b` flag to specify a particular branch to clone instead of the default branch.
+            - `git clone -b <branch_name> https://github.com/user/my-project.git <user_defined_repo_path>`
+        - Clone with mirror.
+            - `--mirror` flag creates a local copy that reflects all branches and tags from the remote repository. This is useful for making a complete backup.
+            - `git clone --mirror https://github.com/user/my-project`
+        - Sparse clone
+            - `--sparse` flag creates a lightweight clone that downloads only the minimum information needed to checkout a specific commit. This can save disk space.
+            - `git clone --sparse https://github.com/user/my-project`
+- git checkout 👇
+    - `git checkout` command is a versatile tool in Git with several functionalities
+    - Switching Branches
+        - switch between different branches in your local repository
+        - `git checkout <branch_name>`
+    - Detaching the HEAD
+        - use the `-d` flag to detach the HEAD
+        - `git checkout -d <branch_name>`
+    - Creating a New Branch ➡️ `git checkout -b <new_branch_name>`
+    - Restoring a File ➡️ `git checkout <commit_hash> <file_path>`
+    - Checkout with Checkout Index
+        - Checkout all staged files ➡️ `git checkout`
+        - Checkout a specific staged file ➡️ `git checkout <file_path>`
+- git branch 👇
+    - Listing Branches ➡️ `git branch`
+        - show all remote tracking branches ➡️ `git branch –a`
+        - list the branches with additional information ➡️ `git branch –v`
+        - only show merged branches ➡️ `git branch –m`
+    - Creating a New Branch ➡️ `git checkout -b <new_branch_name>`
+    - Deleting a Branch ➡️ `git branch -d <branch_name>`
+    - Renaming a Branch ➡️ `git branch -m <old_branch_name> <new_branch_name>`
+    - Merging Branches ➡️ `git merge <branch_name>`
+- git fetch ➡️ `git fetch <remote> <branchname>`
+    - `git fetch` ➡️ downloads updates from a remote repository without merging them into your local working directory.
+    - get newest repository changes visible ➡️ `git fetch --all`
+- git pull ➡️ `git pull`
+    - `git pull` command is a convenient shortcut that combines the functionality of git fetch and git merge in a single step.
+    - `git pull [<remote>] [<branchname>]`
+    -  It's generally a good practice to run `git fetch` first to see what changes are available before using `git pull` to avoid unintended merges.
+- create or add new files ➡️ `git add <new filename>`
+- get a list of modified files ➡️ `git status`
+- commit changes 👇
+    - pack the changes into one commit (like a change package) ➡️ `git commit –a`
+    - get additional changes to a not pushed commit ➡️ `git commit –amend –a`
+- push commits to server ➡️ `git push origin HEAD:<branch_name>`
+- git log 👇
+    - history of commits ➡️ `git log`
+    - history of last 3 commit ➡️ `git log -3`
+    - print latest commit ID ➡️ `git log -1 --format=%H`
+    - print commits merged between two commits ➡️ `git log --oneline 1223344556677890897867453423122334456778..6523456789236734562354237856345634567890`
+- compare your current changes on workspace (which are not committed yet) to the latest commit ➡️ `git difftool`
+- if you want to compare the changes between 2 commits use ➡️ `git difftool <commit id 1> < commit id 2>`
+- cherry-pick change into your workspace ➡️ `git cherry-pick <commit-id>`
+- rebasing steps 👇
     - `git fetch`
     - `git rebase origin/<branch>`
         - if any conflicts then resolve and execute below comments
             - `git add .`
             - `git rebase --continue`
     - `git push --force-with-lease origin HEAD`
-- git stash commands
-    - `git stash` 👉 to stash current changes.
-    - `git stash list` 👉 to list your stashed changes.
-    - `git stash show` 👉 to see what n is in the below commands.
-    - `git stash apply` 👉 to apply the most recent stash.
-    - `git stash apply stash@{n}` 👉 to apply an older stash.
-- clean and reset
-    - clean repository 👉 `git clean -xffd`
-    - reset repository 👉 `git reset --hard`
-    - discard modified files and remove untracked files 👉 `git reset --hard && git clean -f -d`
-    - remove last commit or uncommit last commit 👉 `git reset --hard HEAD~1`
-- git submodule
-    - add submodule 👉 `git submodule add https://github.com/user/repo.git`
-    - add submodule in specific path 👉 `git submodule add https://github.com/user/repo.git path_to_store_submodule`
-    - force update submodules recursively 👉 `git submodule update --init --recursive --force`    
-    - clean submodule recursively 👉 `git submodule foreach --recursive git clean -xffd`
-    - reset submodule recursively 👉 `git submodule foreach --recursive git reset --hard`
-    - remove submodule:
-        - remove the submodule entry from .git/config 👉 `git submodule deinit -f path/to/submodule`
-        - remove the submodule directory from the superproject's .git/modules directory 👉 `rm -rf .git/modules/path/to/submodule`
-        - remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule 👉 `git rm -f path/to/submodule`
+- git stash commands 👇
+    - `git stash` ➡️ to stash current changes.
+    - `git stash list` ➡️ to list your stashed changes.
+    - `git stash show` ➡️ to see what n is in the below commands.
+    - `git stash apply` ➡️ to apply the most recent stash.
+    - `git stash apply stash@{n}` ➡️ to apply an older stash.
+- clean and reset 👇
+    - clean repository ➡️ `git clean -xffd`
+    - reset repository ➡️ `git reset --hard`
+    - discard modified files and remove untracked files ➡️ `git reset --hard && git clean -f -d`
+    - remove last commit or uncommit last commit ➡️ `git reset --hard HEAD~1`
+- git submodule 👇
+    - add submodule ➡️ `git submodule add https://github.com/user/my-project.git`
+    - add submodule in specific path ➡️ `git submodule add https://github.com/user/my-project.git path_to_store_submodule`
+    - force update submodules recursively ➡️ `git submodule update --init --recursive --force`    
+    - clean submodule recursively ➡️ `git submodule foreach --recursive git clean -xffd`
+    - reset submodule recursively ➡️ `git submodule foreach --recursive git reset --hard`
+    - remove submodule 👇
+        - remove the submodule entry from .git/config ➡️ `git submodule deinit -f path/to/submodule`
+        - remove the submodule directory from the superproject's .git/modules directory ➡️ `rm -rf .git/modules/path/to/submodule`
+        - remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule ➡️ `git rm -f path/to/submodule`
 
-- Create/Remove Tag:
-    - make a new tag locally 👉 `git tag <tagname> <commitId>`
-    - push specific new local tag to the remote 👉 `git push origin <tagname>`
-    - push all new local tags to remote 👉 `git push origin --tags`
-    - delete the old tag from local copy 👉 `git tag -d <tagname>`
-    - delete the old tag from remote origin 👉 `git push origin :refs/tags/<tagname>`
-- increase push/pull timeouts
+- Create/Remove Tag 👇
+    - make a new tag locally ➡️ `git tag <tagname> <commitId>`
+    - push specific new local tag to the remote ➡️ `git push origin <tagname>`
+    - push all new local tags to remote ➡️ `git push origin --tags`
+    - delete the old tag from local copy ➡️ `git tag -d <tagname>`
+    - delete the old tag from remote origin ➡️ `git push origin :refs/tags/<tagname>`
+- increase push/pull timeouts 👇
     - `git config lfs.dialtimeout 3600`
     - `git config lfs.activitytimeout 3600`
     - `git config lfs.tlstimeout 3600`
     - `git config lfs.keepalive 3600`
-- open a graphical user interface showing only the mainline you are working 👉 `gitk`
-    - open a graphical user interface showing all branches 👉 `gitk --all`
+- open a graphical user interface showing only the mainline you are working ➡️ `gitk`
+    - open a graphical user interface showing all branches ➡️ `gitk --all`
