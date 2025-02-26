@@ -1,0 +1,22 @@
+site_name: git_notes
+site_url: https://chaitu-ycr.github.io/git_notes/
+site_description: this project stores git notes
+site_author: chaitu-ycr
+
+repo_name: chaitu-ycr/git_notes
+repo_url: https://github.com/chaitu-ycr/git_notes.git
+edit_uri: blob/main/docs/
+
+nav:
+  - index.md
+
+plugins:
+  - include-markdown:
+      recursive: true
+  - search
+
+theme:
+  name: readthedocs
+  features:
+    - toc.integrate
+    - search

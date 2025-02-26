@@ -1,0 +1,28 @@
+[project]
+name = "git_notes"
+version = "0.0.1"
+description = "this project stores git notes"
+license = { text = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "chaitu-ycr", email = "chaitu.ycr@gmail.com" }]
+keywords = ["git", "notes"]
+dynamic = [ "dependencies" ]
+
+[project.urls]
+homepage = "https://github.com/chaitu-ycr/git_notes"
+repository = "https://github.com/chaitu-ycr/git_notes"
+documentation = "https://chaitu-ycr.github.io/git_notes"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+mkdocs-material = "*"
+mkdocs-include-markdown-plugin = "*"
+mkdocstrings-python = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
