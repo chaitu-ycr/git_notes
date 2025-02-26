@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="this project stores git notes" /><meta name="author" content="chaitu-ycr" /><link rel="canonical" href="https://chaitu-ycr.github.io/git_notes/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>git_notes</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "git_notes";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/git_notes/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> git_notes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">git_notes</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">git_notes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">git_notes</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/chaitu-ycr/git_notes.git/blob/main/docs/index.md">Edit on chaitu-ycr/git_notes</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git_notes">git_notes</h1>
+<h1 id="git_notes_1">git_notes</h1>
+<h2 id="git-configuration">git configuration 👇</h2>
+<ul>
+<li>Git configuration allows you to personalize how Git works for you. It's like setting preferences for any other software.</li>
+<li>There's a command called <code>git config</code> that lets you set and view these settings.</li>
+<li>check your current configuration ➡️ <code>git config --list</code></li>
+<li>configure email and name globally</li>
+<li>email id ➡️ <code>git config --global user.email "enter email id"</code></li>
+<li>user name ➡️ <code>git config --global user.name "enter your name"</code></li>
+<li>add notepad++ as a global text editor ➡️ <code>git config --global core.editor notepad++</code></li>
+</ul>
+<h2 id="ssh-key-generation">ssh key generation 👇</h2>
+<ul>
+<li>generating SSH keys is a crucial step for using Git over SSH to securely connect to remote repositories like GitHub or GitLab.</li>
+<li><code>ssh-keygen -t rsa -C "enter email id"</code></li>
+<li><code>ssh-keygen</code> This is the command to generate the SSH key pair.</li>
+<li><code>-t ed25519</code> This specifies the key type. Ed25519 is a modern and secure option. You can use <code>-t rsa -b 4096</code> for RSA keys if your Git provider requires it, but Ed25519 is generally preferred.</li>
+<li><code>-C "your_email@example.com"</code> This adds a comment to your key with your email address. This is helpful for identification.</li>
+<li>command will generate two keys</li>
+<li>A private key (usually named <code>id_rsa</code>) - This key should be kept confidential and never shared.</li>
+<li>A public key (usually named <code>id_rsa.pub</code>) - You'll need to add this public key to your Git provider account.</li>
+</ul>
+<h2 id="clone-repository">clone repository 👇</h2>
+<ul>
+<li><code>git clone</code> command is your gateway to creating a local copy, or clone, of a remote Git repository.</li>
+<li>basic syntax ➡️ <code>git clone [url] [directory_name]</code></li>
+<li><code>git clone https://github.com/chaitu-ycr/git_notes.git</code></li>
+<li>other options</li>
+<li>clone to a specific path<ul>
+<li><code>git clone https://github.com/chaitu-ycr/git_notes.git &lt;user_defined_repo_path&gt;</code></li>
+</ul>
+</li>
+<li>Clone a specific branch<ul>
+<li>use the <code>-b</code> flag to specify a particular branch to clone instead of the default branch.</li>
+<li><code>git clone -b &lt;branch_name&gt; https://github.com/chaitu-ycr/git_notes.git &lt;user_defined_repo_path&gt;</code></li>
+</ul>
+</li>
+<li>Clone with mirror.<ul>
+<li><code>--mirror</code> flag creates a local copy that reflects all branches and tags from the remote repository. This is useful for making a complete backup.</li>
+<li><code>git clone --mirror https://github.com/chaitu-ycr/git_notes.git</code></li>
+</ul>
+</li>
+<li>Sparse clone<ul>
+<li><code>--sparse</code> flag creates a lightweight clone that downloads only the minimum information needed to checkout a specific commit. This can save disk space.</li>
+<li><code>git clone --sparse https://github.com/chaitu-ycr/git_notes.git</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="git-checkout">git checkout 👇</h2>
+<ul>
+<li><code>git checkout</code> command is a versatile tool in Git with several functionalities</li>
+<li>Switching Branches</li>
+<li>switch between different branches in your local repository</li>
+<li><code>git checkout &lt;branch_name&gt;</code></li>
+<li>Detaching the HEAD</li>
+<li>use the <code>-d</code> flag to detach the HEAD</li>
+<li><code>git checkout -d &lt;branch_name&gt;</code></li>
+<li>Creating a New Branch ➡️ <code>git checkout -b &lt;new_branch_name&gt;</code></li>
+<li>Restoring a File ➡️ <code>git checkout &lt;commit_hash&gt; &lt;file_path&gt;</code></li>
+<li>Checkout with Checkout Index</li>
+<li>Checkout all staged files ➡️ <code>git checkout</code></li>
+<li>Checkout a specific staged file ➡️ <code>git checkout &lt;file_path&gt;</code></li>
+</ul>
+<h2 id="git-branch">git branch 👇</h2>
+<ul>
+<li>Listing Branches ➡️ <code>git branch</code></li>
+<li>show all remote tracking branches ➡️ <code>git branch –a</code></li>
+<li>list the branches with additional information ➡️ <code>git branch –v</code></li>
+<li>only show merged branches ➡️ <code>git branch –m</code></li>
+<li>Creating a New Branch ➡️ <code>git checkout -b &lt;new_branch_name&gt;</code></li>
+<li>Deleting a Branch ➡️ <code>git branch -d &lt;branch_name&gt;</code></li>
+<li>Renaming a Branch ➡️ <code>git branch -m &lt;old_branch_name&gt; &lt;new_branch_name&gt;</code></li>
+<li>Merging Branches ➡️ <code>git merge &lt;branch_name&gt;</code></li>
+</ul>
+<h2 id="git-fetch">git fetch 👇</h2>
+<ul>
+<li><code>git fetch</code> ➡️ downloads updates from a remote repository without merging them into your local working directory.</li>
+<li>command is essential for staying up-to-date in Git workflows.</li>
+<li><code>git fetch &lt;remote&gt; &lt;branchname&gt;</code></li>
+<li>Basic Fetch ➡️ <code>git fetch origin</code></li>
+<li>Fetching Specific Branch ➡️ <code>git fetch origin main</code></li>
+<li>Pruning Stale Tracking Branches ➡️ <code>git fetch --prune origin</code></li>
+<li>Fetches from all configured remotes ➡️ <code>git fetch --all</code></li>
+<li>Fetches only tags ➡️ <code>git fetch --tags</code></li>
+<li>Limits the fetch to a specific number of commits ➡️ <code>git fetch --depth=&lt;number&gt;</code></li>
+<li>Shows what would be fetched without making any changes ➡️ <code>git fetch --dry-run</code></li>
+</ul>
+<h2 id="git-pull">git pull 👇</h2>
+<ul>
+<li><code>git pull</code> command is a convenient shortcut that combines the functionality of <code>git fetch</code> and <code>git merge</code> in a single step.</li>
+<li><code>git pull [&lt;remote&gt;] [&lt;branchname&gt;]</code></li>
+<li>Basic Usage ➡️ <code>git pull origin</code></li>
+<li>Specifying Branch ➡️ <code>git pull origin main</code>    -</li>
+<li>It's generally a good practice to run <code>git fetch</code> first to see what changes are available before using <code>git pull</code> to avoid unintended merges.</li>
+<li>More Options</li>
+<li><code>--rebase</code> ➡️ Rebases your local commits on top of the remote branch instead of creating a merge commit. This can lead to a cleaner commit history but can be risky if you've already shared your local branch.</li>
+<li><code>--force</code> ➡️ Forces the merge even if there are local uncommitted changes. This can be dangerous and should be used with caution.</li>
+<li><code>--all</code> ➡️ Fetches from all configured remotes.</li>
+</ul>
+<h2 id="git-add">git add 👇</h2>
+<ul>
+<li><code>git add</code> command is your gateway to including changes in your Git repository. It instructs Git to prepare specific files or directories for the next commit.</li>
+<li>Basic Usage ➡️ <code>git add &lt;filename&gt;</code></li>
+<li>Adding Multiple Files</li>
+<li>Explicit Listing ➡️ <code>git add file1.txt file2.txt file3.js</code></li>
+<li>Using Wildcards ➡️ <code>git add *.txt</code></li>
+<li>Adding All Staged Changes ➡️ <code>git add .</code></li>
+<li>Adding All Changes (Staged and Unstaged) ➡️ <code>git add -A</code></li>
+<li>More Options</li>
+<li><code>-f</code> ➡️ Forces adding files even if they are ignored by Git. Use with caution as it bypasses exclusion rules.</li>
+<li><code>-p</code> ➡️ Patches the content of a file interactively, allowing line-by-line staging of changes.</li>
+<li><code>-u</code> ➡️ Updates the index with only the latest changes in a file, effectively refreshing the staged content.</li>
+<li>create or add new files ➡️ <code>git add &lt;new filename&gt;</code></li>
+</ul>
+<h2 id="git-status">git status 👇</h2>
+<ul>
+<li><code>git status</code> command is your window into the current state of your Git repository. It provides a clear picture of what's happening with your files, helping you understand which changes are tracked, staged, and untracked.</li>
+<li>Basic Usage ➡️ <code>git status</code></li>
+<li>Shortened Status ➡️ <code>git status -s</code></li>
+<li>Untracked Files ➡️ <code>git status --untracked-files=all</code></li>
+<li>More Options</li>
+<li><code>--porcelain</code> ➡️ Provides machine-readable output suitable for scripting.</li>
+<li><code>--branch</code> ➡️ Shows the current branch and any tracking information.</li>
+<li><code>--long</code> ➡️ Offers a more detailed status report, including the exact changes made to modified files.</li>
+</ul>
+<h2 id="git-commit">git commit 👇</h2>
+<ul>
+<li><code>git commit</code> command is fundamental in Git for capturing snapshots of your project's history. It creates a new commit object that stores the current state of your tracked files along with a descriptive message.</li>
+<li>Basic Usage ➡️ <code>git commit</code></li>
+<li>Specifying Commit Message ➡️ <code>git commit -m "Your commit message here"</code></li>
+<li>Committing All Staged Changes ➡️ <code>git commit -a</code></li>
+<li>Amending the Last Commit ➡️ <code>git commit --amend</code></li>
+<li>get additional changes to a not pushed commit ➡️ <code>git commit –amend –a</code></li>
+<li>Adding Untracked Files ➡️ <code>git commit -m "Your message" new_file.txt</code></li>
+<li>More Options</li>
+<li><code>--date=&lt;date&gt;</code> ➡️ Sets the commit date explicitly.</li>
+<li><code>--no-verify</code> ➡️ Bypasses pre-commit hooks (if configured). Use with caution.</li>
+<li><code>--signoff</code> ➡️ Adds a GPG signature to the commit.</li>
+</ul>
+<h2 id="git-push">git push 👇</h2>
+<ul>
+<li><code>git push</code> command is used to upload local commits to a remote repository. It's the counterpart to <code>git fetch</code> (downloading changes) and often used after you've made and committed changes locally.</li>
+<li>Basic Push ➡️ <code>git push origin main</code></li>
+<li>Pushing Specific Branch ➡️ <code>git push origin main</code></li>
+<li>Force Push ➡️ <code>git push origin main --force</code></li>
+<li>Pushing Tags ➡️ <code>git push origin &lt;tag_name&gt;</code></li>
+<li>More Options</li>
+<li><code>-u</code> ➡️ Sets the upstream branch for your current local branch. This simplifies future pushes as you won't need to specify the branch name each time.</li>
+<li><code>--dry-run</code> ➡️ Simulates the push process without making any actual changes. Useful for verifying what would be pushed.</li>
+<li><code>--delete</code> ➡️ Deletes a remote branch after pushing if it has been deleted locally</li>
+<li>push commits to server ➡️ <code>git push origin HEAD:&lt;branch_name&gt;</code></li>
+</ul>
+<h2 id="git-log">git log 👇</h2>
+<ul>
+<li><code>git log</code> command is your historian in the world of Git. It unveils the chronological record of your project's development by displaying a list of commits.</li>
+<li>Basic Usage ➡️ <code>git log</code></li>
+<li>Show a one-line summary for each commit ➡️ <code>git log --oneline</code></li>
+<li>Show visual representation of the commit history using ASCII art ➡️  <code>git log --graph</code></li>
+<li>define a custom format for the commit messages using placeholders ➡️ <code>git log --pretty=format:&lt;custom_format&gt;</code></li>
+<li>print latest commit ID ➡️ <code>git log -1 --format=%H</code></li>
+<li>Filtering Commits</li>
+<li>Limiting Output ➡️ <code>git log -n &lt;number&gt;</code><ul>
+<li>history of last 3 commit ➡️ <code>git log -3</code></li>
+</ul>
+</li>
+<li>Author Filtering ➡️ <code>git log --author="John Doe"</code></li>
+<li>Grepping Commit Messages ➡️ <code>git log -S"&lt;search_term&gt;"</code></li>
+<li>Range Selection ➡️ <code>git log &lt;commit_hash1&gt;..&lt;commit_hash2&gt;</code><ul>
+<li>print commits merged between two commits ➡️ <code>git log --oneline 1223344556677890897867453423122334456778..6523456789236734562354237856345634567890</code></li>
+</ul>
+</li>
+<li>More Options</li>
+<li><code>--all</code> ➡️ Shows commits from all branches, not just the current one.</li>
+<li><code>--topo-order</code> ➡️ Displays commits in a topological order (useful for complex branching).</li>
+<li><code>--stat</code> ➡️ Includes statistics about file changes in each commit.</li>
+</ul>
+<h2 id="git-rebase">git rebase 👇</h2>
+<ul>
+<li>Git rebase is a powerful tool for rewriting your commit history. It replays a series of commits on top of a new base commit.</li>
+<li>Basic Rebase ➡️ <code>git rebase &lt;branch_name&gt;</code></li>
+<li>Interactive Rebase ➡️ <code>git rebase -i &lt;branch_name&gt;</code></li>
+<li>More Options</li>
+<li><code>--onto &lt;upstream&gt; &lt;branch_name&gt;</code> ➡️ Rebases your current branch onto a specific upstream branch, useful for complex branching scenarios.</li>
+<li><code>--keep-base</code> ➡️ Maintains the original base commit of your branch instead of rebasing on top of the specified branch.</li>
+<li>rebasing steps</li>
+<li><code>git fetch</code></li>
+<li><code>git rebase &lt;branch_name&gt;</code><ul>
+<li>if any conflicts during rebase, then resolve and execute below comments</li>
+<li><code>git add .</code></li>
+<li><code>git rebase --continue</code></li>
+</ul>
+</li>
+<li><code>git push --force-with-lease origin HEAD</code></li>
+</ul>
+<h2 id="git-stash">git stash 👇</h2>
+<ul>
+<li><code>git stash</code> command acts as a temporary storage locker for your local changes in Git. It allows you to save your uncommitted work (modified files, staged changes, and even untracked files) on a stack for later retrieval, effectively taking a snapshot of your current working directory.</li>
+<li>Basic Usage ➡️ <code>git stash</code></li>
+<li>Creating Stashes with Message ➡️ <code>git stash "Meaningful message"</code></li>
+<li>Include Untracked Files ➡️ <code>git stash --include-untracked</code></li>
+<li>Retrieving a Stash</li>
+<li>Apply (Without Removing from Stash Stack) ➡️ <code>git stash apply &lt;stash_id&gt;</code></li>
+<li><code>git stash apply</code> ➡️ to apply the most recent stash.</li>
+<li>Pop (Apply and Remove from Stash Stack) ➡️ <code>git stash pop &lt;stash_id&gt;</code></li>
+<li>Listing Stashes ➡️ <code>git stash list</code></li>
+<li>More Options</li>
+<li><code>--keep-index</code> ➡️ Keeps the staged changes in the index even after stashing. This can be useful if you want to keep them staged while working on something else.</li>
+<li><code>--show</code> ➡️ Shows the details of a specific stash, including the diff of the changes it contains.</li>
+<li><code>--drop</code> ➡️ Removes a stash from the stash stack without applying it.</li>
+<li><code>git stash show</code> ➡️ to see what n is in the below commands.</li>
+<li><code>git stash apply stash@{n}</code> ➡️ to apply an older stash.</li>
+</ul>
+<h2 id="git-clean-and-git-reset">git clean and git reset 👇</h2>
+<ul>
+<li>clean repository ➡️ <code>git clean -xffd</code></li>
+<li>reset repository ➡️ <code>git reset --hard</code></li>
+<li>discard modified files and remove untracked files ➡️ <code>git reset --hard &amp;&amp; git clean -f -d</code></li>
+<li>remove last commit or uncommit last commit ➡️ <code>git reset --hard HEAD~1</code></li>
+</ul>
+<h2 id="git-submodule">git submodule 👇</h2>
+<ul>
+<li>add submodule ➡️ <code>git submodule add https://github.com/chaitu-ycr/git_notes.git</code></li>
+<li>add submodule in specific path ➡️ <code>git submodule add https://github.com/chaitu-ycr/git_notes.git path_to_store_submodule</code></li>
+<li>force update submodules recursively ➡️ <code>git submodule update --init --recursive --force</code></li>
+<li>clean submodule recursively ➡️ <code>git submodule foreach --recursive git clean -xffd</code></li>
+<li>reset submodule recursively ➡️ <code>git submodule foreach --recursive git reset --hard</code></li>
+<li>remove submodule</li>
+<li>remove the submodule entry from .git/config ➡️ <code>git submodule deinit -f path/to/submodule</code></li>
+<li>remove the submodule directory from the superproject's .git/modules directory ➡️ <code>rm -rf .git/modules/path/to/submodule</code></li>
+<li>remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule ➡️ <code>git rm -f path/to/submodule</code></li>
+</ul>
+<h2 id="createremove-git-tag">create/remove git tag 👇</h2>
+<ul>
+<li><code>git tag</code> command is used to create lightweight or annotated tags that act as bookmarks for specific points in your commit history.</li>
+<li>Creating Tags</li>
+<li>Lightweight Tag (Reference to a Commit) ➡️ <code>git tag &lt;tag_name&gt; &lt;commit_hash&gt;</code></li>
+<li>Annotated Tag (With Message and Signature) ➡️ <code>git tag -m "Your message here" &lt;tag_name&gt;</code></li>
+<li>Listing Tags ➡️ <code>git tag</code></li>
+<li>Viewing Tag Details ➡️ <code>git show &lt;tag_name&gt;</code></li>
+<li>Deleting Tags ➡️ <code>git tag -d &lt;tag_name&gt;</code></li>
+<li>delete the old tag from remote origin ➡️ <code>git push origin :refs/tags/&lt;tagname&gt;</code></li>
+<li>Pushing Tags to Remote Repository ➡️ <code>git push origin &lt;tag_name&gt;</code></li>
+<li>push all new local tags to remote ➡️ <code>git push origin --tags</code></li>
+<li>More Options</li>
+<li><code>-l</code> ➡️ Lists tags with additional information like the tag message (useful with <code>git tag</code>).</li>
+<li><code>--verify</code> ➡️ Verifies the GPG signature of an annotated tag (if applicable).</li>
+<li><code>--signed</code> ➡️ Creates a signed tag using your GPG key by default (shortcut for <code>-s</code>).</li>
+</ul>
+<h2 id="git-cherry-pick">git cherry-pick</h2>
+<ul>
+<li><code>git cherry-pick</code> command allows you to selectively apply specific commits from one branch to another branch in Git. It essentially "picks" a commit from a branch and grafts it onto your current branch, creating a new commit in your current branch history.</li>
+<li>Basic Usage ➡️ <code>git cherry-pick &lt;commit_hash&gt;</code></li>
+<li>Resolving Merge Conflicts</li>
+<li>If conflicts arise, Git will halt the cherry-pick process and present you with the conflicting parts of the code. You'll need to manually resolve these conflicts using your text editor and then stage the resolved files using <code>git add</code> before continuing with <code>git cherry-pick --continue</code>.</li>
+<li>Cherry-pick with Commit Message Editing ➡️ <code>git cherry-pick -e &lt;commit_hash&gt;</code></li>
+<li>Skipping Conflicts ➡️ <code>git cherry-pick --skip &lt;commit_hash&gt;</code></li>
+</ul>
+<h2 id="increase-pushpull-timeouts">increase push/pull timeouts 👇</h2>
+<ul>
+<li><code>git config lfs.dialtimeout 3600</code></li>
+<li><code>git config lfs.activitytimeout 3600</code></li>
+<li><code>git config lfs.tlstimeout 3600</code></li>
+<li><code>git config lfs.keepalive 3600</code></li>
+</ul>
+<h2 id="other-useful-git-commands">other useful git commands 👇</h2>
+<ul>
+<li>open a graphical user interface showing only the mainline you are working ➡️ <code>gitk</code></li>
+<li>open a graphical user interface showing all branches ➡️ <code>gitk --all</code></li>
+<li>compare your current changes on workspace (which are not committed yet) to the latest commit ➡️ <code>git difftool</code></li>
+<li>if you want to compare the changes between 2 commits use ➡️ <code>git difftool &lt;commit id 1&gt; &lt; commit id 2&gt;</code></li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/chaitu-ycr/git_notes.git" class="fa fa-code-fork" style="color: #fcfcfc"> chaitu-ycr/git_notes</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-02-26 14:58:41.442616+00:00
+-->
